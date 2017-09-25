@@ -1,0 +1,148 @@
+.ui,
+.slideout-panel {
+    background-color: #171717;
+}
+
+.ui-base,
+.ui-base ul,
+.thin-ui-button {
+    background-color: #222222;
+}
+
+.ui-accent-background,
+.m-hero.gradient_variant_5 .m-hero__slider:after,
+.thin-ui-form input[type="submit"],
+input[type="submit"] {
+    background-color: #0C8EC4;
+}
+
+a,
+.entry a,
+.teal,
+#cinnamon-cards .sort .teal,
+#author-cards .sort .teal,
+.ip_box_top .name,
+.hmenu a.whitened:hover,
+.notifications-bell:hover,
+.notifications-bell:hover i,
+.notifications-bell:hover sup,
+.notifications-container a,
+.notifications-container .unread i,
+.notifications-container .notifications-title {
+    color: #0C8EC4;
+}
+
+html,
+.head
+.imagetitle,
+.copyright,
+nav form:after,
+nav ul li a,
+nav ul li:hover > a,
+nav ul .home .fa,
+.button,
+.button-small,
+.button:hover,
+.button-small:hover,
+.button-small a:hover,
+.message,
+.panel,
+#nav-below .fa,
+.ip-tabs a:hover,
+.cinnamon-award-list-item,
+.hmenu a.notifications-bell,
+.notifications-container a:hover,
+.changeCollection,
+.ip-tabs .current a,
+.ip-tabs a:hover {
+    color: #FFFFFF;
+}
+
+#comments li.bypostauthor,
+.notifications-container .unread {
+    border-left: 3px solid #0C8EC4;
+}
+
+.login_overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+#comments ul li {
+    background-color: rgba(0, 0, 0, 0.15);
+}
+
+.notifications-bell:hover {
+    box-shadow: none;
+}
+.notifications-bell:hover sup {
+    background-color: #FFFFFF;
+}
+
+.notifications-bell:hover,
+.notifications-container a,
+.notifications-container a:hover,
+.collection_details_edit .deleteCollection.button:hover {
+    background: none;
+}
+
+.ip_collections_edit:hover {
+    border: 1px solid rgba(0, 0, 0, 0) !important;
+}
+
+.responsive-search:after,
+.hmenu #searchform:after {
+    color: #CCCCCC;
+}
+
+nav ul li a:hover,
+nav ul li:hover > a,
+.noir-secondary,
+.button:hover,
+.button-small:hover,
+.progress-default,
+.cinnamon-award-list-item,
+.showSearch a,
+input[type="submit"],
+.imagepress-follow,
+.imagepress-button {
+    box-shadow: inset 0 99px 0 rgba(0, 0, 0, 0.15);
+}
+
+.imagepress-button:hover {
+    background-color: #02B2FC;
+}
+
+nav .current-menu-item {
+    box-shadow: inset 0 -1px #0C8EC4;
+}
+
+.ip-additional-active {
+    border: 3px solid #0C8EC4;
+}
+
+#comments .children li {
+    border-left: 1px dotted #0C8EC4;
+}
+
+
+#l,
+ul#ip-tab li.active a,
+.ip-tabs .current a,
+.ip-tabs a:hover,
+.notifications-container .notifications-title {
+    border-bottom: 1px solid #0C8EC4;
+}
+
+/**/
+nav,
+nav form input[type="search"],
+.noir-default,
+.imagepress-paginator a,
+nav ul li ul,
+.dropdown .dropdown-menu {
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.15);
+}
+
+.head {
+    box-shadow: 0 40px 0 #171717;
+}
