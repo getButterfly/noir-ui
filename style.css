@@ -4,13 +4,17 @@ Theme URI: https://getbutterfly.com/downloads/noir-ui/
 Author: Ciprian Popescu
 Author URI: https://getbutterfly.com
 Description: Noir UI is a dark theme, built on top of CSS3 UI Kit framework and ImagePress.
-Version: 5.4.1
+Version: 5.4.2
 License: GNU General Public License
 License URI: https://www.gnu.org/licenses/gpl.html
 Tags: dark, black
 Text Domain: noir-ui
 
 CHANGELOG
+
+= 5.4.2 =
+* FIX: Force loading of settings, shortcodes and updater to avoid errors
+* UPDATE: Added automatic updater
 
 = 5.4 =
 * FIX: Fixed logo not appearing on mobile devices
