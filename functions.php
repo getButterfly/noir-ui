@@ -7,11 +7,11 @@ if (!function_exists('get_imagepress_option')) {
     }
 }
 
-include_once 'includes/noir-settings.php';
-include_once 'includes/noir-shortcodes.php';
+require_once 'includes/noir-settings.php';
+require_once 'includes/noir-shortcodes.php';
 
-include_once 'includes/updater.php';
-$updater = new Inc2734_WP_GitHub_Theme_Updater(get_stylesheet(), 'getButterfly', 'noir-ui');
+require_once 'includes/updater.php';
+$updater = new NoirGitHubThemeUpdater(get_stylesheet(), 'getButterfly', 'noir-ui');
 
 function noir_load_fonts() {
     $version = wp_get_theme()->get('Version');
