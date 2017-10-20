@@ -31,10 +31,6 @@ audio:not([controls]) {
     height: 0;
 }
 
-[hidden],template {
-    display: none;
-}
-
 a {
     background-color: transparent;
 }
@@ -447,7 +443,7 @@ nav li:hover > ul {
     box-shadow: none;
     padding: 0 12px;
     height: 40px;
-    margin: 6px 0px 0 4px;
+    margin: 6px 0 0 4px;
     background-color: rgba(0, 0, 0, 0.25);
     color: #FFFFFF;
 }
