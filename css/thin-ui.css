@@ -60,7 +60,6 @@ input[type="submit"]:hover {
     height: 2.7em;
     line-height: 2.7em;
     box-sizing: border-box;
-    outline: none;
     display: inline-block;
     -webkit-appearance: none;
     -moz-appearance: none;

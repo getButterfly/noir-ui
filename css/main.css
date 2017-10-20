@@ -39,10 +39,6 @@ a {
     background-color: transparent;
 }
 
-a:active,a:hover {
-    outline: 0;
-}
-
 abbr[title] {
     border-bottom: 1px dotted;
 }
@@ -456,11 +452,6 @@ nav li:hover > ul {
     color: #FFFFFF;
 }
 
-.hmenu form input[type="text"]:active,
-.hmenu form input[type="text"]:focus {
-    outline: none;
-}
-
 .hmenu form input[type="text"] {
     font-family: inherit;
     font-weight: inherit;
@@ -575,7 +566,6 @@ nav .hd {
     text-align: center;
     border: 0 none;
     white-space: nowrap;
-    padding: 8px !important;
 }
 
 .imagepress-button:hover {
