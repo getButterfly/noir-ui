@@ -25,11 +25,11 @@
         <h3 class="widget-title"><?php the_title(); ?></h3>
         <div class="textwidget">
             <p>
-                &copy;<?php echo date('Y'); ?> <?php the_author_posts_link(); ?> 
+                &copy;<?php echo date('Y'); ?> <?php echo getImagePressProfileUri($author_id); ?> 
                 <?php
                 $logged_in_user = wp_get_current_user();
 
-                if(is_user_logged_in() && $author_id != $logged_in_user->ID) {
+                if (is_user_logged_in() && $author_id != $logged_in_user->ID) {
                     echo do_shortcode('[follow_links follow_id="' . $author_id . '"]');
                 }
                 ?>
@@ -55,7 +55,7 @@
             //
             ?>
 
-            <?php if(get_option('ip_mod_collections') == 1) { ?>
+            <?php if ((int) get_option('ip_mod_collections') === 1) { ?>
                 <h3 class="widget-title"><?php _e('Collections', 'noir-ui'); ?></h3>
                 <?php ip_frontend_view_image_collection(get_the_ID()); ?>
                 <?php ip_frontend_add_collection(get_the_ID()); ?>
@@ -68,12 +68,12 @@
     <div class="widget-container widget_text">
         <h3 class="widget-title"><?php _e('Related Images', 'noir-ui'); ?></h3>
         <div class="textwidget">
-            <p><i class="fa fa-user"></i> <?php _e('More images by the same author', 'noir-ui'); ?> (<a href="<?php echo get_author_posts_url($post->post_author); ?>"><?php _e('view all', 'noir-ui'); ?></a>)</p>
+            <p><?php _e('More images by the same author', 'noir-ui'); ?></p>
             <?php echo cinnamon_get_related_author_posts($post->post_author); ?>
 
             <p>&nbsp;</p>
 
-            <p><?php _e('More images from the gallery', 'noir-ui'); ?> (<a href="<?php echo get_permalink(get_theme_mod('noir_url_all_images')); ?>"><?php _e('view all', 'noir-ui'); ?></a>)</p>
+            <p><?php _e('More images from the gallery', 'noir-ui'); ?></p>
             <?php
             $cinnamon_post_type = get_option('cinnamon_post_type');
             $ip_slug = get_option('ip_slug');
@@ -85,7 +85,7 @@
             $output = '';
             if($authors_posts) {
                 echo '<div class="cinnamon-grid"><ul>';
-                    foreach($authors_posts as $authors_post) {
+                    foreach ($authors_posts as $authors_post) {
                         echo '<li><a href="' . get_permalink($authors_post->ID) . '">' . get_the_post_thumbnail($authors_post->ID, 'thumbnail') . '</a></li>';
                     }
                 echo '</ul></div>';
