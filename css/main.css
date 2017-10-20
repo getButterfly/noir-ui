@@ -676,7 +676,6 @@ nav .hd {
     position: absolute;
     background: transparent;
     border: 6px solid transparent;
-    position: absolute;
 }
 
 .hint:after {
@@ -1512,7 +1511,6 @@ footer[role="contentinfo"] #footer-content .footer-widget {
 .m-hero__entry {
     display: block;
     background-size: cover;
-    background-position: top center;
     box-sizing: border-box;
     position: relative;
     height: 675px;
