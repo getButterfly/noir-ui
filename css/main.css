@@ -131,9 +131,6 @@ table {
 
 /* =WordPress Core
 -------------------------------------------------------------- */
-.sticky {
-}
-
 .alignnone {
     margin: 5px 20px 20px 0;
 }
@@ -209,9 +206,6 @@ a img.aligncenter {
     line-height: 17px;
     margin: 0;
     padding: 0 4px 5px;
-}
-
-.gallery-caption {
 }
 
 /* Text meant only for screen readers. */
@@ -995,8 +989,6 @@ h3.entry-title {
     text-decoration: none;
 }
 
-.toggleFrontEndModalButton {}
-
 .toggleFrontEndModalButton:hover {
     text-decoration: none;
 }
@@ -1163,9 +1155,6 @@ footer[role="contentinfo"] #footer-content .footer-widget {
 /* COLOURS */
 .yellow {
     color: #dace6a;
-}
-
-.teal {
 }
 
 .green {
@@ -1373,9 +1362,6 @@ footer[role="contentinfo"] #footer-content .footer-widget {
 .notifications-container .notification-item {
     color: #FFFFFF;
 }
-
-
-#fileuploads {}
 
 
 
