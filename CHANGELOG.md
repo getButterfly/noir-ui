@@ -3,6 +3,7 @@
 = 5.4.3 =
 * FIX: Updated author link to work with the latest version of ImagePress (7.5+)
 * FIX: License text fix and update to GPLv3
+* UPDATE: Code quality changes
 
 = 5.4.2 =
 * FIX: Force loading of settings, shortcodes and updater to avoid errors
