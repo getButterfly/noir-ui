@@ -1,5 +1,6 @@
 # Noir UI
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/5e1b27720c8f43f9b8ecbc0d3e715a38)](https://www.codacy.com/app/getButterfly/noir-ui)
 [![CodeFactor](https://www.codefactor.io/repository/github/getbutterfly/noir-ui/badge)](https://www.codefactor.io/repository/github/getbutterfly/noir-ui)
 [![Maintainability](https://api.codeclimate.com/v1/badges/3f8b7215818ec3e42b76/maintainability)](https://codeclimate.com/github/getButterfly/noir-ui/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/3f8b7215818ec3e42b76/test_coverage)](https://codeclimate.com/github/getButterfly/noir-ui/test_coverage)
