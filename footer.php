@@ -23,7 +23,7 @@
     <div class="attribution">
         <div class="copyright">
 			<?php wp_nav_menu(array('theme_location' => 'footer-menu', 'container' => false)); ?>
-            <br><small><?php _e('Powered by', 'noir-ui'); ?> <a href="https://getbutterfly.com/downloads/noir-ui/" rel="external">Noir UI</a>.</small>
+            <br><small><?php esc_html_e('Powered by', 'noir-ui'); ?> <a href="https://getbutterfly.com/downloads/noir-ui/" rel="external">Noir UI</a>.</small>
             <br><small><?php echo get_theme_mod('noir_footer_copyright_text'); ?></small>
         </div>
     </div>

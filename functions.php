@@ -36,18 +36,16 @@ add_action('wp_enqueue_scripts', 'noir_load_fonts');
 
 add_filter('wp_nav_menu_items', 'noir_custom_menu_item', 10, 2);
 
-function noir_custom_menu_item ($items, $args) {
+function noir_custom_menu_item($items, $args) {
     if ($args->theme_location == 'main-menu') {
         $current_user = wp_get_current_user();
 
         $current_items = $items;
 
-        //$items = '<li><a class="js-slideout-toggle ui-base" href="#"><i class="material-icons">menu</i></a></li>';
+        $items = '<li><a href="' . home_url() . '" class="menu-logo-large">' . get_bloginfo('name') . '</a></li>';
 
         if (has_custom_logo()) {
             $items = '<li>' . get_custom_logo() . '</li>';
-        } else {
-            $items = '<li><a href="' . home_url() . '" class="menu-logo-large">' . get_bloginfo('name') . '</a></li>';
         }
 
         $items .= $current_items;
@@ -81,54 +79,13 @@ function noir_custom_menu_item ($items, $args) {
     return $items;
 }
 
-// integrated breadcrumbs
-function the_breadcrumb() {
-    global $post;
 
-    echo '<ul id="breadcrumbs">';
-        if(!is_home()) {
-            echo '<li><a href="' . home_url() . '"><i class="fa fa-home"></i></a></li><li class="separator">/</li>';
-            if(is_category() || is_single()) {
-                echo '<li>';
-                    the_category('</li><li class="separator">/</li><li>');
-                    if(is_single()) {
-                        echo '</li><li class="separator">/</li><li>';
-                            the_title();
-                        echo '</li>';
-                    }
-            }
-            elseif(is_page()) {
-                if($post->post_parent) {
-                    $anc = get_post_ancestors($post->ID);
-                    $title = get_the_title();
-                    foreach($anc as $ancestor) {
-                        $output = '<li><a href="' . get_permalink($ancestor) . '">' . get_the_title($ancestor) . '</a></li><li class="separator">/</li>';
-                    }
-                    echo $output;
-                    echo '<strong>' . $title . '</strong>';
-                }
-                else {
-                    echo '<li><strong>' . get_the_title() . '</strong></li>';
-                }
-            }
-        }
-        elseif(is_tag()) { single_tag_title(); }
-        elseif(is_day()) { echo"<li>Archive for "; the_time('F jS, Y'); echo'</li>'; }
-        elseif(is_month()) { echo"<li>Archive for "; the_time('F, Y'); echo'</li>'; }
-        elseif(is_year()) { echo"<li>Archive for "; the_time('Y'); echo'</li>'; }
-        elseif(is_author()) { echo"<li>Author Archive"; echo'</li>'; }
-        elseif(isset($_GET['paged']) && !empty($_GET['paged'])) {echo "<li>Site Archives"; echo'</li>'; }
-        elseif(is_search()) { echo"<li>Search Results"; echo'</li>'; }
-    echo '</ul>';
+
+function noir_add_excerpt_support_for_pages() {
+    add_post_type_support('post', 'page-attributes');
+    add_post_type_support('image', 'page-attributes');
 }
-
-
-/* ALPHA */
-function wpcodex_add_excerpt_support_for_pages() {
-	add_post_type_support( 'post', 'page-attributes' );
-	add_post_type_support( 'image', 'page-attributes' );
-}
-add_action( 'init', 'wpcodex_add_excerpt_support_for_pages' );
+add_action('init', 'noir_add_excerpt_support_for_pages');
 
 
 
@@ -294,52 +251,46 @@ function noirui_widgets_init() {
 
 function noir_comments($comment, $args, $depth) {
     $GLOBALS['comment'] = $comment;
-    switch($comment->comment_type) :
+
+    switch ($comment->comment_type) :
         case 'pingback' :
         case 'trackback' :
-        if('div' == $args['style']) {
-            $tag = 'div';
-            $add_below = 'comment';
-        }
-        else {
-            $tag = 'li';
-            $add_below = 'div-comment';
-        }
-        ?>
-        <li <?php comment_class(); ?> id="comment-<?php comment_ID(); ?>">
-            <p><?php _e('Pingback:', 'noir-ui'); ?> <?php comment_author_link(); ?> <?php edit_comment_link( __( '(Edit)', 'noir-ui' ), '<span class="edit-link">', '</span>' ); ?></p>
-    <?php
+            if ('div' == $args['style']) {
+                $tag = 'div';
+                $add_below = 'comment';
+            } else {
+                $tag = 'li';
+                $add_below = 'div-comment';
+            }
+            ?>
+            <li <?php comment_class(); ?> id="comment-<?php comment_ID(); ?>">
+                <p><?php _e('Pingback:', 'noir-ui'); ?> <?php comment_author_link(); ?> <?php edit_comment_link(__('(Edit)', 'noir-ui'), '<span class="edit-link">', '</span>'); ?></p>
+            </li>
+            <?php
             break;
         default :
-        global $post;
-    ?>
-    <li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>">
-        <article id="div-comment-<?php comment_ID(); ?>" class="comment-body">
-                <?php if(0 != $args['avatar_size']) echo get_avatar($comment->user_id, 64); ?>
-                <footer class="comment-meta">
-                    <div class="comment-author vcard">
-                        <?php
-                        if($comment->user_id) {
-                            $user = get_userdata($comment->user_id);
-                            $display_name = $user->display_name;
+            ?>
+            <li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>">
+                <article id="div-comment-<?php comment_ID(); ?>" class="comment-body">
+                    <?php if (0 != $args['avatar_size']) echo get_avatar($comment->user_id, 64); ?>
+                    <footer class="comment-meta">
+                        <div class="comment-author vcard">
+                            <?php
+                            if ($comment->user_id) {
+                                $user = get_userdata($comment->user_id);
+                                $display_name = $user->display_name;
 
-                            if(get_the_author_meta('user_title', $comment->user_id) == 'Verified')
-                                $verified = ' <span class="teal hint hint--right" data-hint="' . get_imagepress_option('cms_verified_profile') . '"><i class="fa fa-check-square"></i></span>';
-                            else
-                                $verified = '';
+                                $linkie = '<b><a href="' . get_author_posts_url($comment->user_id) . '">' . $display_name . '</a> </b> ' . __('says', 'noir-ui') . ':';
+                            } else {
+                                $linkie = '<b><a href="' . $comment->comment_author_url . '" rel="external nofollow">' . $comment->comment_author . '</a></b> says:';
+                            }
 
-                            $linkie = '<b><a href="' . get_author_posts_url($comment->user_id) . '">' . $display_name . '</a> ' . $verified . '</b> ' . __('says', 'noir-ui') . ':';
-                        }
-                        else {
-                            $linkie = '<b><a href="' . $comment->comment_author_url . '" rel="external nofollow">' . $comment->comment_author . '</a></b> says:';
-                        }
-                        ?>
-
-                        <?php echo $linkie; ?>
-                    </div><!-- .comment-author -->
+                            echo $linkie;
+                            ?>
+                        </div><!-- .comment-author -->
 
                     <?php if('0' == $comment->comment_approved) : ?>
-                    <p class="comment-awaiting-moderation"><?php _e('Your comment is awaiting moderation.', 'noir-ui'); ?></p>
+                    <p class="comment-awaiting-moderation"><?php esc_html_e('Your comment is awaiting moderation.', 'noir-ui'); ?></p>
                     <?php endif; ?>
                 </footer><!-- .comment-meta -->
 

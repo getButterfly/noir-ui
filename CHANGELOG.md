@@ -1,5 +1,10 @@
 # CHANGELOG
 
+= 5.4.4 =
+* FIX: Removed unused function
+* FIX: Removed unused variable
+* UPDATE: Code quality changes
+
 = 5.4.3 =
 * FIX: Updated author link to work with the latest version of ImagePress (7.5+)
 * FIX: License text fix and update to GPLv3
