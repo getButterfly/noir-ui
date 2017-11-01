@@ -1,5 +1,8 @@
 # CHANGELOG
 
+= 5.5.0 =
+* FIX: Fixed mobile menu
+
 = 5.4.4 =
 * FIX: Removed unused function
 * FIX: Removed unused variable

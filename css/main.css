@@ -1655,7 +1655,7 @@ footer[role="contentinfo"] #footer-content .footer-widget {
 
 
 
-.js-slideout-toggle, #menu {
+.js-slideout-toggle {
     display: none;
 }
 
