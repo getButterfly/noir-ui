@@ -62,9 +62,9 @@ function noir_custom_menu_item($items, $args) {
         }
     
         if (is_user_logged_in()) {
-            $items .= '<li class="hmenu-right"><a href="' . get_author_posts_url($current_user->ID) . '">' . get_avatar($current_user->ID, 32) . '</a>
+            $items .= '<li class="hmenu-right"><a href="' . getImagePressProfileUri($current_user->ID, false) . '">' . get_avatar($current_user->ID, 32) . '</a>
                 <ul class="ui-base">
-                    <li><a href="' . get_author_posts_url($current_user->ID) . '">' . __('View profile', 'noir-ui') . '</a></li>
+                    <li><a href="' . getImagePressProfileUri($current_user->ID, false) . '">' . __('View profile', 'noir-ui') . '</a></li>
                     <li><a href="' . get_imagepress_option('cinnamon_edit_page') . '">' . __('Edit profile', 'noir-ui') . '</a></li>
                     <li><a href="' . wp_logout_url(home_url()) . '">' . __('Log out', 'noir-ui') . '</a></li>
                 </ul>
@@ -280,7 +280,7 @@ function noir_comments($comment, $args, $depth) {
                                 $user = get_userdata($comment->user_id);
                                 $display_name = $user->display_name;
 
-                                $linkie = '<b><a href="' . get_author_posts_url($comment->user_id) . '">' . $display_name . '</a> </b> ' . __('says', 'noir-ui') . ':';
+                                $linkie = '<b><a href="' . getImagePressProfileUri($comment->user_id, false) . '">' . $display_name . '</a> </b> ' . __('says', 'noir-ui') . ':';
                             } else {
                                 $linkie = '<b><a href="' . $comment->comment_author_url . '" rel="external nofollow">' . $comment->comment_author . '</a></b> says:';
                             }

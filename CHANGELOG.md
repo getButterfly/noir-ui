@@ -1,5 +1,8 @@
 # CHANGELOG
 
+= 5.5.1 =
+* FIX: Fixed author links in several places
+
 = 5.5.0 =
 * FIX: Fixed mobile menu
 

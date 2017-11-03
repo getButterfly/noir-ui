@@ -33,7 +33,7 @@
                 </a>
                 <div class="ip_box_top">
                     <a href="' . get_permalink($i) . '" class="imagetitle">' . get_the_title($i) . '</a>
-                    <span class="name">' . get_avatar(get_the_author_id(), 16) . ' <a href="' . get_author_posts_url(get_the_author_id()) . '">' . get_the_author() . '</a></span>
+                    <span class="name">' . get_avatar(get_the_author_id(), 16) . ' <a href="' . getImagePressProfileUri(get_the_author_id(), false) . '">' . get_the_author() . '</a></span>
                 </div>
             </div>';
             ?>
