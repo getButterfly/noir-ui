@@ -1,5 +1,8 @@
 # CHANGELOG
 
+= 5.5.2 =
+* FIX: Fixed duplicate function being read twice
+
 = 5.5.1 =
 * FIX: Fixed author links in several places
 

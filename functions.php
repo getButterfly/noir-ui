@@ -1,12 +1,4 @@
 <?php
-if (!function_exists('get_imagepress_option')) {
-    function get_imagepress_option($option) {
-        $ipOptions = get_option('imagepress');
-
-        return $ipOptions[$option];
-    }
-}
-
 require_once 'includes/noir-settings.php';
 require_once 'includes/noir-shortcodes.php';
 
