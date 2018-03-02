@@ -1,5 +1,9 @@
 # CHANGELOG
 
+= 5.6.2 =
+* FIX: Removed unused Material icons
+* FIX: Removed unused (deprecated) updater
+
 = 5.6.1 =
 * FIX: Fixed font icon pseudo elements
 * FIX: Merged Material icons with the rest of the Google fonts

@@ -6,19 +6,18 @@
  */
 
 // Includes the files needed for the theme updater
-if ( !class_exists( 'EDD_Theme_Updater_Admin' ) ) {
-	include( dirname( __FILE__ ) . '/theme-updater-admin.php' );
+if (!class_exists('EDD_Theme_Updater_Admin')) {
+	include dirname(__FILE__) . '/theme-updater-admin.php';
 }
 
 // Loads the updater classes
 $updater = new EDD_Theme_Updater_Admin(
-
 	// Config settings
 	$config = array(
 		'remote_api_url' => 'https://getbutterfly.com', // Site where EDD is hosted
 		'item_name'      => 'Noir UI', // Name of theme
 		'theme_slug'     => 'noir-ui', // Theme slug
-		'version'        => '5.6.0', // The current version of this theme
+		'version'        => '5.6.2', // The current version of this theme
 		'author'         => 'getButterfly', // The author of this theme
 		'download_id'    => '', // Optional, used for generating a license renewal link
 		'renew_url'      => '', // Optional, allows for a custom license renewal link
@@ -50,5 +49,4 @@ $updater = new EDD_Theme_Updater_Admin(
 		'update-notice'             => __( "Updating this theme will lose any customizations you have made. 'Cancel' to stop, 'OK' to update.", 'noir-ui' ),
 		'update-available'          => __('<strong>%1$s %2$s</strong> is available. <a href="%3$s" class="thickbox" title="%4s">Check out what\'s new</a> or <a href="%5$s"%6$s>update now</a>.', 'noir-ui' ),
 	)
-
 );
