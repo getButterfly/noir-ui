@@ -1,5 +1,16 @@
 # CHANGELOG
 
+= 5.6.1 =
+* FIX: Fixed font icon pseudo elements
+* FIX: Merged Material icons with the rest of the Google fonts
+
+= 5.6.0 =
+* FEATURE: Added category directory shortcode
+* FEATURE: Added member directory shortcode
+* FEATURE: Added category to search results
+* FEATURE: Added taxonomy template
+* FEATURE: Added theme license and automatic update
+
 = 5.5.2 =
 * FIX: Fixed duplicate function being read twice
 

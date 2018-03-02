@@ -2,7 +2,7 @@
 
 <section id="content-wide" role="main">
      <?php if (have_posts()) { ?>
-        <h1 class="entry-title"><?php printf(__('Search Results for: %s', 'noir-ui'), get_search_query()); ?></h1>
+        <h1 class="entry-title"><?php single_term_title(''); ?></h1>
         <?php while (have_posts()) : the_post(); ?>
             <div class="noir-box">
                 <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_post_thumbnail('imagepress_ls_std'); ?></a>

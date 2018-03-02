@@ -1,15 +1,24 @@
 <?php
+/**
+ * Load theme updater functions.
+ * Action is used so that child themes can easily disable.
+ */
+
+function prefix_theme_updater() {
+    require get_template_directory() . '/updater/theme-updater.php';
+}
+add_action('after_setup_theme', 'prefix_theme_updater');
+
 require_once 'includes/noir-settings.php';
 require_once 'includes/noir-shortcodes.php';
 
-require_once 'includes/updater.php';
-$updater = new NoirGitHubThemeUpdater(get_stylesheet(), 'getButterfly', 'noir-ui');
+//require_once 'includes/updater.php';
+//$updater = new NoirGitHubThemeUpdater(get_stylesheet(), 'getButterfly', 'noir-ui');
 
 function noir_load_fonts() {
     $version = wp_get_theme()->get('Version');
 
-    wp_enqueue_style('noir-google-fonts', 'https://fonts.googleapis.com/css?family=Open+Sans:300,400,700|Montserrat:400,700', array(), $version);
-    wp_enqueue_style('material-google-fonts', 'https://fonts.googleapis.com/icon?family=Material+Icons', array(), $version);
+    wp_enqueue_style('noir-google-fonts', 'https://fonts.googleapis.com/css?family=Open+Sans:300,400,700|Montserrat:400,700|Material+Icons', array(), $version);
     wp_enqueue_style('noir', get_stylesheet_directory_uri() . '/css/main.css', array(), $version);
 
     if ((string) get_theme_mod('noir_color_scheme') === 'dark') {

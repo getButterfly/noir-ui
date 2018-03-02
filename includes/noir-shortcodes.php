@@ -4,6 +4,8 @@ add_shortcode('noir-box', 'noir_element_box');
 add_shortcode('noir-boilerplate', 'noir_element_boilerplate');
 add_shortcode('noir-grid', 'noir_element_grid');
 add_shortcode('icon', 'noir_element_fontawesome');
+add_shortcode('noir-categories', 'noir_element_categories');
+add_shortcode('noir-member-directory', 'noir_element_member_directory');
 
 add_filter('widget_text', 'do_shortcode');
 
@@ -169,6 +171,75 @@ function noir_element_boilerplate($atts, $content = null) {
         <h1 class="boilerplate-title">' . $welcome . ' <span class="teal">' . get_bloginfo('name') . '</span></h1>
         <h2 class="boilerplate-content">' . get_bloginfo('description') . '</h2>
 	</div>';
+
+    return $out;
+}
+
+function noir_element_categories($atts) {
+    extract(shortcode_atts(array(
+        'columns' => 3,
+    ), $atts));
+
+    // &exclude=' . $exclude . '
+    // $exclude .= ',' . $roo_excluded_categories;
+
+    $get_cats = wp_list_categories('echo=0&title_li=&show_count=1&hide_empty=0&hierarchical=false&taxonomy=imagepress_image_category&orderby=name');
+
+    $cat_array = explode('</li>', $get_cats);
+
+    $display = '';
+    $display .= '<style scoped>.roo-categories { -moz-column-count: ' . $columns . '; -webkit-column-count: ' . $columns . '; column-count: ' . $columns . '; }</style>';
+
+    $display .= '<div class="roo-container">';
+        $display .= '<ul class="roo-categories">';
+            foreach($cat_array as $category) {
+                $display .= $category . '</li>';
+            }
+        $display .= '</ul>';
+    $display .= '</div>';
+
+    return $display;
+}
+
+function ip_member_directory_user_query($args) {
+    $ip_slug = get_imagepress_option('ip_slug');
+    $args->query_from = str_replace("post_type = post AND", "post_type IN ('$ip_slug') AND ", $args->query_from);
+}
+
+function noir_element_member_directory() {
+    global $wpdb;
+
+    $out = '';
+
+    // (SELECT COUNT(ID) FROM {$wpdb->prefix}posts WHERE post_type = 'image' AND post_status = 'publish' AND post_author = mu.user_id) as 'image_count'
+
+    $query = "SELECT id, display_name"
+            . " FROM {$wpdb->prefix}users";
+    $members = $wpdb->get_results($query);
+
+    add_action('pre_user_query','ip_member_directory_user_query');
+    $members = get_users(array(
+        'fields' => array('ID', 'display_name'),
+        'orderby' => 'post_count',
+        'who' => 'authors',
+        'has_published_posts' => get_post_types(array('public' => true)),
+        // 'number' => 100,
+        // 'query_id' => 'authors_with_posts',
+    ));
+    remove_action('pre_user_query','ip_member_directory_user_query');
+
+    $ipProfilePageId = (int) get_imagepress_option('ip_profile_page');
+    $ipProfilePageUri = get_permalink($ipProfilePageId);
+    $ipProfileSlug = (string) get_imagepress_option('cinnamon_author_slug');
+
+    $out .= '<div>';
+        foreach ($members as $group) {
+            $ipProfileUri = $ipProfilePageUri . '?' . $ipProfileSlug . '=' . get_the_author_meta('user_login', $group->ID);
+            $out .= '<div style="float:left;width:33%;">
+                <a href="' . $ipProfileUri . '">' . $group->display_name . '</a>
+            </div>';
+        }
+    $out .= '</div>';
 
     return $out;
 }
