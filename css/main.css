@@ -396,6 +396,10 @@ nav li:hover > ul {
     visibility: visible;
 }
 
+.custom-logo-link img {
+    width: auto;
+    max-height: 48px;
+}
 
 
 .hero { width: 100%; height: 620px; margin: 0 auto 48px auto; position: relative; }

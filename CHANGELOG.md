@@ -1,5 +1,9 @@
 # CHANGELOG
 
+= 5.6.3 =
+* FIX: Fixed invalid Material icon
+* FIX: Fixed custom logo size
+
 = 5.6.2 =
 * FIX: Removed unused Material icons
 * FIX: Removed unused (deprecated) updater

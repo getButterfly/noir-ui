@@ -31,7 +31,7 @@
 </div>
 
 <div id="panel">
-    <div class="js-slideout-toggle ui-base"><i class="material-icons">menu</i></div>
+    <div class="js-slideout-toggle ui-base"><i class="fas fa-bars"></i></div>
 
     <div class="hmenu">
         <nav class="ui-base">
