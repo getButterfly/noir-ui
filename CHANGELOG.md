@@ -1,5 +1,12 @@
 # CHANGELOG
 
+= 6.0.0 =
+* TODO: Implement all fixes for slideout.js (https://github.com/Mango/slideout)
+
+= 5.7.0 =
+* UPDATE: Update compatibility with ImagePress
+* UPDATE: Moved SlideOutJS to /js/ instead of CDNJS
+
 = 5.6.3 =
 * FIX: Fixed invalid Material icon
 * FIX: Fixed custom logo size

@@ -16,7 +16,6 @@
         </nav>
 
         <?php echo ipGetPostLikeLink(get_the_ID()); ?>
-        <?php echo imagepress_image_download(get_the_post_thumbnail_url()); ?>
 
         <p>
             <?php imagepress_get_like_users(get_the_ID()); ?>
